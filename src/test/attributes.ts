@@ -1,10 +1,11 @@
-var assert = require('assert');
+import assert from 'assert'
+import { init } from '../snabbdom'
+import attributesModule from '../modules/attributes'
 
-var snabbdom = require('../snabbdom');
-var patch = snabbdom.init([
-  require('../modules/attributes').default,
+var patch = init([
+  attributesModule
 ]);
-var h = require('../h').default;
+import h from '../h'
 
 describe('attributes', function() {
   var elm, vnode0;

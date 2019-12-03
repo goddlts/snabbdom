@@ -1,10 +1,11 @@
-var assert = require('assert');
+import assert from 'assert'
+import { init } from '../snabbdom'
+import eventListenersModule from '../modules/eventlisteners'
 
-var snabbdom = require('../snabbdom');
-var patch = snabbdom.init([
-  require('../modules/eventlisteners.js').default,
+var patch = init([
+  eventListenersModule
 ]);
-var h = require('../h').default;
+import h from '../h'
 
 describe('event listeners', function() {
   var elm, vnode0;

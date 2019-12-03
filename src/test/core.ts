@@ -1,29 +1,24 @@
-var assert = require('assert');
-var shuffle = require('knuth-shuffle').knuthShuffle;
+import assert from 'assert'
+import { shuffle, map } from 'lodash'
 
-var snabbdom = require('../snabbdom');
-var patch = snabbdom.init([
-  require('../modules/class').default,
-  require('../modules/props').default,
-  require('../modules/eventlisteners').default,
+import { init } from '../snabbdom'
+import classModule from '../modules/class'
+import propsModule from '../modules/props'
+import eventListenersModule from '../modules/eventlisteners'
+var patch = init([
+  classModule,
+  propsModule,
+  eventListenersModule
 ]);
-var h = require('../h').default;
-var toVNode = require('../tovnode').default;
-var vnode = require('../vnode').default;
-var htmlDomApi = require('../htmldomapi').htmlDomApi;
+import h from '../h'
+import toVNode from '../tovnode'
+import vnode from '../vnode'
+import htmlDomApi from '../htmldomapi'
 
-function prop(name) {
-  return function(obj) {
+function prop<T>(name: string) {
+  return function(obj: {[index: string]: T}) {
     return obj[name];
   };
-}
-
-function map(fn, list) {
-  var ret = [];
-  for (var i = 0; i < list.length; ++i) {
-    ret[i] = fn(list[i]);
-  }
-  return ret;
 }
 
 var inner = prop('innerHTML');

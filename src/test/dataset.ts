@@ -1,12 +1,13 @@
-var assert = require('assert');
-var fakeRaf = require('fake-raf');
+import assert from 'assert'
+import fakeRaf from 'fake-raf'
+import datasetModule from '../modules/dataset'
 
-var snabbdom = require('../snabbdom');
+import { init } from '../snabbdom'
 fakeRaf.use();
-var patch = snabbdom.init([
-  require('../modules/dataset').default,
+var patch = init([
+  datasetModule
 ]);
-var h = require('../h').default;
+import h from '../h'
 
 describe('dataset', function() {
   var elm, vnode0;

@@ -1,9 +1,10 @@
-var assert = require('assert');
+import assert from 'assert'
 
-var snabbdom = require('../snabbdom');
-var h = require('../h').default;
-var patch = snabbdom.init([
-  require('../modules/attributes').default
+import { init } from '../snabbdom'
+import h from '../h'
+import attributesModule from '../modules/attributes'
+var patch = init([
+  attributesModule
 ]);
 
 describe('svg', function () {

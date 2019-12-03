@@ -1,9 +1,9 @@
-var assert = require('assert');
-var snabbdom = require('../snabbdom');
+import assert from 'assert'
+import { init } from '../snabbdom'
+import attachTo from '../helpers/attachto'
+import h from '../h'
 
-var patch = snabbdom.init([]);
-var attachTo = require('../helpers/attachto').default;
-var h = require('../h').default;
+var patch = init([]);
 
 describe('attachTo', function() {
   var elm, vnode0;
