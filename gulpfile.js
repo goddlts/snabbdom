@@ -52,7 +52,7 @@ gulp.task('bundle:module:eventlisteners', function() {
   return standalone('snabbdom_eventlisteners', './modules/eventlisteners.js')
 })
 
-gulp.task('bundle', [
+gulp.task('bundle', gulp.series([
   'bundle:snabbdom',
   'bundle:snabbdom:init',
   'bundle:snabbdom:h',
@@ -63,20 +63,20 @@ gulp.task('bundle', [
   'bundle:module:props',
   'bundle:module:style',
   'bundle:module:eventlisteners'
-])
+]))
 
-gulp.task('compress', ['bundle'], function() {
+gulp.task('compress', gulp.series(['bundle'], function() {
   return gulp.src(['dist/*.js', '!dist/*.min.js'])
     .pipe(sourcemaps.init())
     .pipe(uglify())
     .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist'))
-})
+}))
 
 gulp.task('clean', function() {
   return gulp.src('dist/*.*', {read: false})
     .pipe(clean())
 })
 
-gulp.task('default', ['bundle'])
+gulp.task('default', gulp.series(['bundle']))

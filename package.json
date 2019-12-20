@@ -23,7 +23,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "fake-raf": "1.0.1",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-clean": "^0.3.2",
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^2.6.0",
@@ -74,7 +74,7 @@
   "homepage": "https://github.com/paldepind/snabbdom#readme",
   "husky": {
     "hooks": {
-      "pre-commit": "npm test"
+      // "pre-commit": "npm test"
     }
   },
   "files": [
