@@ -72,11 +72,6 @@
     "url": "https://github.com/paldepind/snabbdom/issues"
   },
   "homepage": "https://github.com/paldepind/snabbdom#readme",
-  "husky": {
-    "hooks": {
-      // "pre-commit": "npm test"
-    }
-  },
   "files": [
     "src/helpers/attachto.ts",
     "src/modules/attributes.ts",
